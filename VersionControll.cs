@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 
 public class VersionControll : MonoBehaviour
 {
+    
+#if UNITY_EDITOR
     private void Awake()
     {
         StartCoroutine(CheckVersion(delegate(bool isVersion)
@@ -15,6 +17,7 @@ public class VersionControll : MonoBehaviour
                 Debug.LogWarning("The version is not up to date, we advise you to update to the current one");
         }));
     }
+#endif
 
     public IEnumerator CheckVersion(Action<bool> resualt = null)
     {
@@ -26,7 +29,6 @@ public class VersionControll : MonoBehaviour
     }
 }
 
-// Github json
 [Serializable]
 public class GitJson
 {
