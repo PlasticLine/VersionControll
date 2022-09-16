@@ -16,7 +16,7 @@ public class VersionControll : MonoBehaviour
         }));
     }
 
-    private IEnumerator CheckVersion(Action<bool> resualt = null)
+    public IEnumerator CheckVersion(Action<bool> resualt = null)
     {
         UnityWebRequest request = UnityWebRequest.Get($"https://api.github.com/repos/{Application.companyName}/{Application.productName}/releases/latest");
         yield return request.SendWebRequest();
